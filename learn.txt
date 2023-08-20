@@ -1,1 +1,4 @@
 setup axios dotenv vue-router 
+
+
+npx sequelize-cli db:migrate
