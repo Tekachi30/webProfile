@@ -4,6 +4,8 @@ const cors = require("cors");
 const app = express();
 require("./Config/connect");
 
+const { routerUser } = require('./routers/userRouter');
+
 // Thiết lập body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,7 +19,9 @@ app.use(
 // Các Serve tệp tĩnh
 app.use(express.static("uploads"));
 
+app.use(routerUser);
+
 const port = 5000;
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`API đang chạy : http://localhost:${port}/`);
 });
